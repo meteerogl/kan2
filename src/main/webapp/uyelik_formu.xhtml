@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+        
+                <center>
+                    <p:panel header="Yeni Üye Formu" style="padding: 12px;" >
+                        <p:commandButton value="GERI" icon="ui-icon-check" action="login.xhtml" validateClient="true" style="float: right" />
+                       <h:panelGrid columns="2" cellpadding="10"  >
+
+                               <h:outputText  value="Kullanıcı İsmi:"></h:outputText>
+                               <p:inputText value="#{uyelikController.user_name}"></p:inputText>
+
+                               <h:outputText value="İsim:"></h:outputText>
+                               <p:inputText value="#{uyelikController.name}"></p:inputText>
+
+                               <h:outputText value="Soyisim:"></h:outputText>
+                               <p:inputText value="#{uyelikController.surname}"></p:inputText>
+
+                               <h:outputText value="Mail Adresi:"></h:outputText>
+                               <p:inputText value="#{uyelikController.mail_adress}"></p:inputText>
+
+                               <h:outputText value="Kan Gurubu:"></h:outputText>
+                               <p:inputText value="#{uyelikController.blood}"></p:inputText>
+
+                               <h:outputText value="Telefon Numarası:"></h:outputText>
+                               <p:inputText value="#{uyelikController.tel_number}"></p:inputText>
+
+                               <h:outputText value="Adres:"></h:outputText>
+                               <p:inputText value="#{uyelikController.adress}"></p:inputText>
+
+                               <h:outputText value="Şifre:"></h:outputText>
+                               <p:password value="#{uyelikController.user_password}"></p:password>
+
+                               <h:outputText value="Şifre Tekrar:"></h:outputText>
+                               
+
+
+                               <p:commandButton value="KAYDOL" icon="ui-icon-check"  action="#{uyelikController.uye_kayıt()}" validateClient="true" style="float: none" />
+
+                           </h:panelGrid>
+                        
+                    </p:panel>
+                </center>
+        </h:form>
+    </h:body>
+</html>
+
