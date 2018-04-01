@@ -24,11 +24,18 @@ public class loginController implements Serializable
     private String kullanici;
     private String sifre;
     private int user_id;
+    private String blood;
+    private String name;
+    private String surname;
+    private String mail_adress;
+    private String tel_number;
+    private String adress;
+    private int active_deactive;
+    
+    
+    
+    
     private String eski_sifre;
-    
-    
-    
-    
     private String yeni_sifre;
     private String yeni_sifre_control;
     
@@ -48,6 +55,13 @@ public class loginController implements Serializable
         {
             user_id = u.getUserId();
             eski_sifre=u.getUserPassword();
+            blood = u.getBlood();
+            name = u.getName();
+            surname = u.getSurname();
+            mail_adress=u.getMailAdress();
+            tel_number = u.getTelNumber();
+            adress = u.getAdress();
+            active_deactive= u.getActiveDeactive();
             
            return "kullanıcı_paneli?faces-redirect=true";
         }
@@ -57,14 +71,17 @@ public class loginController implements Serializable
         }
     }
     
-    public  List<Users> bilgileri_getir()
-    {
-        login log = new login();
-        bilgiler = log.bilgileri_getir(kullanici, sifre);
+   public void bilgileri_güncelle()
+   {
+       login b = new login();
+       b.güncelle(name, surname, mail_adress, blood, tel_number, adress, user_id);
+   }
         
-        return bilgiler;
+    public void hesap_sil()
+    {
         
     }
+    
     
     public void sifre_degis()
     {
@@ -86,8 +103,12 @@ public class loginController implements Serializable
     {
         return "uyelik_formu?faces-redirect=true";
     }
+    public String sifremi_unuttum_buton()
+    {
+        return "parola_yenile?faces-redirect=true";
+    }
     
-    
+ 
     public List<Users> getBilgiler() {
         return bilgiler;
     }
@@ -146,6 +167,62 @@ public class loginController implements Serializable
 
     public void setYeni_sifre_control(String yeni_sifre_control) {
         this.yeni_sifre_control = yeni_sifre_control;
+    }
+
+    public String getBlood() {
+        return blood;
+    }
+
+    public void setBlood(String blood) {
+        this.blood = blood;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public String getMail_adress() {
+        return mail_adress;
+    }
+
+    public void setMail_adress(String mail_adress) {
+        this.mail_adress = mail_adress;
+    }
+
+    public String getTel_number() {
+        return tel_number;
+    }
+
+    public void setTel_number(String tel_number) {
+        this.tel_number = tel_number;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
+    }
+
+    public int getActive_deactive() {
+        return active_deactive;
+    }
+
+    public void setActive_deactive(int active_deactive) {
+        this.active_deactive = active_deactive;
     }
     
     

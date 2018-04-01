@@ -35,6 +35,7 @@ public class login
         query.setParameter("userName", userName);
         query.setParameter("userPassword", userPassword);
         user = (Users) query.getSingleResult();
+        em.close();
         return user;
     }
     
@@ -45,7 +46,9 @@ public class login
         query.setParameter("userName", userName);
         query.setParameter("userPassword", userPassword);
         bilgiler = query.getResultList();
+        em.close();
         return  bilgiler;
+        
     }
     
     
@@ -57,7 +60,39 @@ public class login
             em.getTransaction().begin();
             u.setUserPassword(yeni_sifre);
             em.getTransaction().commit();
+            
+            
         }
         return u;
     }
+    
+    
+   public Users güncelle(
+   
+                        String name,
+                        String surname,
+                        String mail_adress,
+                        String blood,
+                        String tel_number,
+                        String adress,
+                        int    user_id)
+   {
+       Users u = em.find(Users.class, user_id);
+       if(u!= null)
+       {
+           
+           em.getTransaction().begin();
+           u.setName(name);
+           u.setSurname(surname);
+           u.setMailAdress(mail_adress);
+           u.setBlood(blood);
+           u.setTelNumber(tel_number);
+           u.setAdress(adress);
+           em.getTransaction().commit();
+           
+       
+       }
+       return u;
+   }
+    
 }

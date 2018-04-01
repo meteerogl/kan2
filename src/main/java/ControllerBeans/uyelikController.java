@@ -8,7 +8,9 @@ import java.io.Serializable;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.validation.ValidationException;
 
 
 
@@ -32,22 +34,22 @@ public class uyelikController implements Serializable
     
     
 
-    public void info() {
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
-    }
-    public void uye_kayıt() throws MySQLIntegrityConstraintViolationException
+   
+    public void uye_kayıt()
     {
-        uyelik yeni = new uyelik();
-        yeni.yeni_uye(user_name, user_password, name, surname, mail_adress, blood, tel_number, adress, active_deactive,user_id);
-        
-        
+        if(user_password.equals(password_control))
+        {
+           uyelik yeni = new uyelik();
+            yeni.yeni_uye(user_name, user_password, name, surname, mail_adress, blood, tel_number, adress, active_deactive,user_id); 
+        }
+ 
     }
     
-    public void hatra()
+    public String geri()
     {
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Info", "PrimeFaces Rocks."));
+         return "login?faces-redirect=true";
     }
-    
+  
     
     
     public int getUser_id() {

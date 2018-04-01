@@ -40,16 +40,16 @@
                             </h:panelGrid>
                             <p:commandButton value="Giriş Yap" update="grid" icon="ui-icon-check" action="#{loginController.validateLogin()}" validateClient="true" style="margin-right:10px"/>
                             <p:commandButton value="Üye Ol" update="grid" icon="ui-icon-check" action="#{loginController.üyeol_buton()}" validateClient="true" style="margin-right:10px"/>
-                            <p:commandButton value="Şifremi Unuttum" update="grid" icon="ui-icon-check" action="#{loginController.validateLogin()}" validateClient="true" style="margin-right:10px"/>
+                            <p:commandButton value="Şifremi Unuttum" update="grid" icon="ui-icon-check" action="#{loginController.sifremi_unuttum_buton()}" validateClient="true" style="margin-right:10px"/>
                             
                 </p:panel>
-                </center>
+                
             <h:panelGrid>
-            <p:commandButton value="Modal" type="button" onclick="PF('dlg2').show();" />
+                <p:commandButton value="ACİL KAN ARA" type="button" onclick="PF('dlg2').show();" style="float: none" />
             </h:panelGrid>
             <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
                 <h:inputText value="asda" />
-</p:dialog>
+            </p:dialog></center>
         </h:form>
     </h:body>
 </html>

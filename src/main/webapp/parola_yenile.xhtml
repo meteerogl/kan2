@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <center>
+                <p:panel header="ŞİFREMİ UNUTTUM">
+                            <p:messages autoUpdate="true"/>
+                            <h:panelGrid id="grid" columns="2" cellpadding="5">
+                                    <p:outputLabel value="Kullanıcı Adı:" />
+                                    <p:inputText id="username" value="#{loginController.kullanici}" required="true"/>
+                                    <p:message for="username"/>
+                                    <br /><br />
+                                    <p:outputLabel value="Mail Adresi" />
+                                    <p:inputText id="password" value="#{loginController.name}" required="true"/>
+                                    <br></br><br></br><br></br><br></br>
+                                    <p:commandButton value="Şifreyi Yenile" action="#{parola_controller.mail_at()}" type="button" onclick="PF('dlg2').show();" style="float:none"></p:commandButton>
+                                    
+                            </h:panelGrid> 
+                </p:panel>
+                
+            <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="200">
+                <p:outputLabel value="MaiL ADRESİNİZİ KONTROL EDİN"></p:outputLabel>
+                <h:panelGrid columns="2" cellpadding="15" >
+                                <h:outputText value="Gelen Kodu Giriniz:"></h:outputText>
+                                <p:inputText value="#{parola_controller.mailAdress}"></p:inputText>
+                                
+                                
+                                
+                                <p:commandButton value="ONAYLA" icon="ui-icon-check"  action="#{loginController.sifre_degis()}" validateClient="true" style="float: right" />
+                </h:panelGrid>
+               
+            </p:dialog></center>
+        </h:form>
+    </h:body>
+</html>
+

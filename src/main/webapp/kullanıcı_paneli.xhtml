@@ -22,54 +22,55 @@
             
             <center>
             <p:panel  header="Kullanıcı Bilgileri" style="padding: 12px;" >
-                <h:panelGrid columns="2" cellpadding="15"  >
+                <h:panelGrid columns="2" cellpadding="10"  >
 
                     <h:outputText styleClass="intro" value="Kullanıcı İsmi:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <h:outputText value="#{kullanıcı.userName}" />
-                    </ui:repeat>
+                    
+                    <h:outputText value="#{loginController.kullanici}" />
+                   
                     
                     <h:outputText value="İsim:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <h:outputText value="#{kullanıcı.name}" />       &nbsp;
-                    </ui:repeat>
+                    
+                        <h:outputText value="#{loginController.name}" />       
+                  
                     
                     <h:outputText value="Soyisim:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <h:outputText value="#{kullanıcı.surname}" />
-                    </ui:repeat>
+                  
+                    <h:outputText value="#{loginController.surname}" />
+                
                     
                     <h:outputText value="Mail Adresi:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <h:outputText value="#{kullanıcı.mailAdress}" />
-                    </ui:repeat>
+                 
+                    <h:outputText value="#{loginController.mail_adress}" />
+              
                     
                     <h:outputText value="Kan Gurubu:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <h:outputText value="#{kullanıcı.blood}" />
-                    </ui:repeat>
+                  
+                    <h:outputText value="#{loginController.blood}" />
+              
                     
                     <h:outputText value="Telefon Numarası:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <h:outputText value="#{kullanıcı.telNumber}" />
-                    </ui:repeat>
+                  
+                    <h:outputText value="#{loginController.tel_number}" />
+               
                     
                     <h:outputText value="Adres:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <h:outputText value="#{kullanıcı.adress}" />
-                    </ui:repeat>
+                   
+                    <h:outputText value="#{loginController.adress}" />
+              
                     
                     <h:outputText value="Kullanıcı id:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <h:outputText value="#{kullanıcı.userId}" />
-                    </ui:repeat>
-                   
+               
+                    <h:outputText value="#{loginController.user_id}" />
+            
+                    
   
                 </h:panelGrid>
                     <p:commandButton value="CIKIS" icon="ui-icon-check" action="login.xhtml" validateClient="true" style="float: right" />
                     <p:commandButton value="BİLGİLER_GÜNCELLE" type="button" onclick="PF('bilgileri_güncelle').show();"  style="float: left" />
                     <p:commandButton value="ŞİFRE GÜNCELLE" type="button" onclick="PF('sifre_güncelleme').show();"  style="float: left" />
                     <p:commandButton value="HESABI SİL" icon="ui-icon-check" action="login.xhtml" validateClient="true" style="float: left" />
+                    <p:commandButton value="diğer" icon="ui-icon-check" action="diger.xhtml" validateClient="true" style="float: right" />
                         
             </p:panel>
                         
@@ -105,54 +106,55 @@
             <p:dialog header="Bilgileri Güncelle" widgetVar="bilgileri_güncelle" minHeight="40">
                 
                 
-                 <h:panelGrid columns="2" cellpadding="15"  >
-                     
+                 
+                <h:panelGrid columns="2" cellpadding="10">    
                     <h:outputText styleClass="intro" value="Kullanıcı İsmi:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <p:inputText id="username" value="#{loginController.kullanici}"/>
-                    </ui:repeat>
+                    <p:inputText id="username" value="#{loginController.kullanici}" readonly="true"/>
+                 
                     
                     
                     <h:outputText value="İsim:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <p:inputText value="#{kullanıcı.name}" />       &nbsp;
-                    </ui:repeat>
+                    <p:inputText value="#{loginController.name}" /> 
+                  
                     
                     <h:outputText value="Soyisim:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <p:inputText value="#{kullanıcı.surname}" />
-                    </ui:repeat>
+                    <p:inputText value="#{loginController.surname}" />
+                 
                     
                     <h:outputText value="Mail Adresi:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <p:inputText value="#{kullanıcı.mailAdress}" />
-                    </ui:repeat>
+                    <p:inputText value="#{loginController.mail_adress}"  />
+                    
                     
                     <h:outputText value="Kan Gurubu:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <p:inputText value="#{kullanıcı.blood}" />
-                    </ui:repeat>
+                    <p:selectOneMenu value="#{loginController.blood}">
+                        <f:selectItem itemValue="A Rh +" itemLabel="A Rh +"/>
+                        <f:selectItem itemValue="A Rh -" itemLabel="A Rh -"/>
+                        <f:selectItem itemValue="B Rh +" itemLabel="A Rh +"/>
+                        <f:selectItem itemValue="B Rh -" itemLabel="B Rh -"/>
+                        <f:selectItem itemValue="AB Rh +" itemLabel="AB Rh +"/>
+                        <f:selectItem itemValue="AB Rh -" itemLabel="AA Rh -"/>
+                        <f:selectItem itemValue="0 Rh -" itemLabel="0 Rh +"/>
+                        <f:selectItem itemValue="0 Rh +" itemLabel="0 Rh -"/>
+                    </p:selectOneMenu>
                     
                     <h:outputText value="Telefon Numarası:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <p:inputText value="#{kullanıcı.telNumber}" />
-                    </ui:repeat>
+                    <p:inputText value="#{loginController.tel_number}" />
+                
                     
                     <h:outputText value="Adres:"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <p:inputText value="#{kullanıcı.adress}" />
-                    </ui:repeat>
+                    <p:inputText value="#{loginController.adress}" />
+              
                     
                     <h:outputText value="Aktif-Deaktif"></h:outputText>
-                    <ui:repeat value="#{loginController.bilgileri_getir()}" var="kullanıcı">
-                        <p:inputText value="#{kullanıcı.activeDeactive}" />
-                    </ui:repeat>
+                    <p:inputText value="#{loginController.active_deactive}" />
+                 
+                    <p:commandButton value="GÜNCELLE" icon="ui-icon-check" action="#{loginController.bilgileri_güncelle()}" style="float: right" />
                     
-                   
+                    
+                </h:panelGrid> 
   
-                </h:panelGrid>
+                
             </p:dialog>
-            <h:outputText value="#{loginController.user_id}"></h:outputText>
                             
                 
         </h:form>
