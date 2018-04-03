@@ -41,7 +41,7 @@
                             <p:commandButton value="Giriş Yap" update="grid" icon="ui-icon-check" action="#{loginController.validateLogin()}" validateClient="true" style="margin-right:10px"/>
                             <p:commandButton value="Üye Ol" update="grid" icon="ui-icon-check" action="#{loginController.üyeol_buton()}" validateClient="true" style="margin-right:10px"/>
                             <p:commandButton value="Şifremi Unuttum" update="grid" icon="ui-icon-check" action="#{loginController.sifremi_unuttum_buton()}" validateClient="true" style="margin-right:10px"/>
-                            <p:commandButton value="am" action="kan_arama2?faces-redirect=true"></p:commandButton>
+                            
                 </p:panel>
                 
             <h:panelGrid>
@@ -58,9 +58,9 @@
                                                      <f:selectItem itemValue="B Rh +" itemLabel="A Rh +"/>
                                                      <f:selectItem itemValue="B Rh -" itemLabel="B Rh -"/>
                                                      <f:selectItem itemValue="AB Rh +" itemLabel="AB Rh +"/>
-                                                     <f:selectItem itemValue="AB Rh -" itemLabel="AA Rh -"/>
-                                                     <f:selectItem itemValue="0 Rh -" itemLabel="0 Rh +"/>
-                                                     <f:selectItem itemValue="0 Rh +" itemLabel="0 Rh -"/>
+                                                     <f:selectItem itemValue="AB Rh -" itemLabel="AB Rh -"/>
+                                                     <f:selectItem itemValue="0 Rh -" itemLabel="0 Rh -"/>
+                                                     <f:selectItem itemValue="0 Rh +" itemLabel="0 Rh +"/>
                     </p:selectOneMenu>
                      
                      <h:outputText value="İl Bilgisi"></h:outputText>
