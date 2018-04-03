@@ -69,7 +69,7 @@
                     <p:commandButton value="CIKIS" icon="ui-icon-check" action="login.xhtml" validateClient="true" style="float: right" />
                     <p:commandButton value="BİLGİLER_GÜNCELLE" type="button" onclick="PF('bilgileri_güncelle').show();"  style="float: left" />
                     <p:commandButton value="ŞİFRE GÜNCELLE" type="button" onclick="PF('sifre_güncelleme').show();"  style="float: left" />
-                    <p:commandButton value="HESABI SİL" icon="ui-icon-check" action="login.xhtml" validateClient="true" style="float: left" />
+                    <p:commandButton value="HESABI SİL" icon="ui-icon-check" action="#{loginController.hesap_sil()}" validateClient="true" style="float: left" />
                     <p:commandButton value="diğer" icon="ui-icon-check" action="diger.xhtml" validateClient="true" style="float: right" />
                         
             </p:panel>
@@ -80,8 +80,7 @@
             
             <p:dialog header="Şifreyi Güncelle" widgetVar="sifre_güncelleme" minHeight="40">
                             <h:panelGrid columns="2" cellpadding="15"  >
-                                Eski Sifre yanlış girilince ve şisfreler uyumsuz olunca hata veriyor
-                                ekrana hata mesajı verilecek sadece..
+                                
                                 <h:outputText value="Kullancı Id:"></h:outputText>
                                 <h:outputText value="#{loginController.user_id}"></h:outputText>
                                 
@@ -146,7 +145,7 @@
               
                     
                     <h:outputText value="Aktif-Deaktif"></h:outputText>
-                    <p:inputText value="#{loginController.active_deactive}" />
+                    <h:outputText value="#{loginController.active_deactive}"></h:outputText>
                  
                     <p:commandButton value="GÜNCELLE" icon="ui-icon-check" action="#{loginController.bilgileri_güncelle()}" style="float: right" />
                     

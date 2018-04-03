@@ -11,13 +11,11 @@
             <center>
                 <p:panel header="ŞİFREMİ UNUTTUM">
                             <p:messages autoUpdate="true"/>
-                            <h:panelGrid id="grid" columns="2" cellpadding="5">
+                            <h:panelGrid id="grid" columns="1" cellpadding="5">
                                     <p:outputLabel value="Kullanıcı Adı:" />
-                                    <p:inputText id="username" value="#{loginController.kullanici}" required="true"/>
+                                    <p:inputText id="username" value="#{parola_controller.userName}" required="true"/>
                                     <p:message for="username"/>
-                                    <br /><br />
-                                    <p:outputLabel value="Mail Adresi" />
-                                    <p:inputText id="password" value="#{loginController.name}" required="true"/>
+                                    
                                     <br></br><br></br><br></br><br></br>
                                     <p:commandButton value="Şifreyi Yenile" action="#{parola_controller.mail_at()}" type="button" onclick="PF('dlg2').show();" style="float:none"></p:commandButton>
                                     
@@ -26,14 +24,7 @@
                 
             <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="200">
                 <p:outputLabel value="MaiL ADRESİNİZİ KONTROL EDİN"></p:outputLabel>
-                <h:panelGrid columns="2" cellpadding="15" >
-                                <h:outputText value="Gelen Kodu Giriniz:"></h:outputText>
-                                <p:inputText value="#{parola_controller.mailAdress}"></p:inputText>
-                                
-                                
-                                
-                                <p:commandButton value="ONAYLA" icon="ui-icon-check"  action="#{loginController.sifre_degis()}" validateClient="true" style="float: right" />
-                </h:panelGrid>
+                
                
             </p:dialog></center>
         </h:form>

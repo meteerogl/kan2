@@ -41,14 +41,46 @@
                             <p:commandButton value="Giriş Yap" update="grid" icon="ui-icon-check" action="#{loginController.validateLogin()}" validateClient="true" style="margin-right:10px"/>
                             <p:commandButton value="Üye Ol" update="grid" icon="ui-icon-check" action="#{loginController.üyeol_buton()}" validateClient="true" style="margin-right:10px"/>
                             <p:commandButton value="Şifremi Unuttum" update="grid" icon="ui-icon-check" action="#{loginController.sifremi_unuttum_buton()}" validateClient="true" style="margin-right:10px"/>
-                            
+                            <p:commandButton value="am" action="kan_arama2?faces-redirect=true"></p:commandButton>
                 </p:panel>
                 
             <h:panelGrid>
                 <p:commandButton value="ACİL KAN ARA" type="button" onclick="PF('dlg2').show();" style="float: none" />
             </h:panelGrid>
-            <p:dialog header="Modal Dialog" widgetVar="dlg2" modal="true" height="100">
-                <h:inputText value="asda" />
+                <p:dialog header="Kan Arama Formu" widgetVar="dlg2" modal="true" height="200" width="300">
+            <h:panelGrid columns="2">
+                    
+                     <h:outputText value="Kan Gurubu:"></h:outputText>
+                               
+                     <p:selectOneMenu value="#{kanAraController.kan_grubu}">
+                                                     <f:selectItem itemValue="A Rh +" itemLabel="A Rh +"/>
+                                                     <f:selectItem itemValue="A Rh -" itemLabel="A Rh -"/>
+                                                     <f:selectItem itemValue="B Rh +" itemLabel="A Rh +"/>
+                                                     <f:selectItem itemValue="B Rh -" itemLabel="B Rh -"/>
+                                                     <f:selectItem itemValue="AB Rh +" itemLabel="AB Rh +"/>
+                                                     <f:selectItem itemValue="AB Rh -" itemLabel="AA Rh -"/>
+                                                     <f:selectItem itemValue="0 Rh -" itemLabel="0 Rh +"/>
+                                                     <f:selectItem itemValue="0 Rh +" itemLabel="0 Rh -"/>
+                    </p:selectOneMenu>
+                     
+                     <h:outputText value="İl Bilgisi"></h:outputText>
+                     <p:selectOneMenu value="#{kanAraController.il_bilgisi}">
+                                                    <f:selectItem itemValue="Ankara" itemLabel="Ankara"/>
+                                                     <f:selectItem itemValue="İstanbul" itemLabel="İstanbul"/>
+                                                     <f:selectItem itemValue="Sivas" itemLabel="Sivas"/>
+                                                     <f:selectItem itemValue="Şırnak" itemLabel="Şırnak"/>
+                                                     <f:selectItem itemValue="Hakkari" itemLabel="Hakkari"/>
+                                                     <f:selectItem itemValue="Kayseri" itemLabel="Kayseri"/>
+                                                     <f:selectItem itemValue="Muğla" itemLabel="Muğla"/>
+                                                     <f:selectItem itemValue="Denizli" itemLabel="Denizli"/>
+                     
+                     </p:selectOneMenu>
+                     
+                     
+                </h:panelGrid>
+                
+                <p:commandButton value="görüntüle" action="kan_arama?faces-redirect=true"></p:commandButton>
+                
             </p:dialog></center>
         </h:form>
     </h:body>

@@ -10,10 +10,17 @@ import Entity.Users;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 
 
@@ -31,6 +38,8 @@ public class loginController implements Serializable
     private String tel_number;
     private String adress;
     private int active_deactive;
+    String aranacak_kan;
+    String il;
     
     
     
@@ -51,8 +60,14 @@ public class loginController implements Serializable
         
         login User = new login();
         Users u = User.valUser(kullanici, sifre);
-        if(u!=null)
+        if(u==null || u.getActiveDeactive()==2)
         {
+            return "login?faces-redirect=true";
+        }
+        else
+        {
+            
+                
             user_id = u.getUserId();
             eski_sifre=u.getUserPassword();
             blood = u.getBlood();
@@ -63,11 +78,8 @@ public class loginController implements Serializable
             adress = u.getAdress();
             active_deactive= u.getActiveDeactive();
             
-           return "kullanıcı_paneli?faces-redirect=true";
-        }
-        else
-        {
-            return "index";
+            return "kullanıcı_paneli?faces-redirect=true";
+            
         }
     }
     
@@ -79,7 +91,8 @@ public class loginController implements Serializable
         
     public void hesap_sil()
     {
-        
+        login l = new login();
+        l.hesap_sil(user_id);
     }
     
     
@@ -106,6 +119,10 @@ public class loginController implements Serializable
     public String sifremi_unuttum_buton()
     {
         return "parola_yenile?faces-redirect=true";
+    }
+    public String kan_arama_sayfası()
+    {
+        return "kan_arama?faces-redirect=true";
     }
     
  
@@ -223,6 +240,22 @@ public class loginController implements Serializable
 
     public void setActive_deactive(int active_deactive) {
         this.active_deactive = active_deactive;
+    }
+
+    public String getAranacak_kan() {
+        return aranacak_kan;
+    }
+
+    public void setAranacak_kan(String aranacak_kan) {
+        this.aranacak_kan = aranacak_kan;
+    }
+
+    public String getIl() {
+        return il;
+    }
+
+    public void setIl(String il) {
+        this.il = il;
     }
     
     

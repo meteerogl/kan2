@@ -35,13 +35,15 @@ public class uyelikController implements Serializable
     
 
    
-    public void uye_kayıt()
+    public String uye_kayıt()
     {
         if(user_password.equals(password_control))
         {
            uyelik yeni = new uyelik();
             yeni.yeni_uye(user_name, user_password, name, surname, mail_adress, blood, tel_number, adress, active_deactive,user_id); 
         }
+        
+        return "login?faces-redirect=true";
  
     }
     

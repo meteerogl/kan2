@@ -94,5 +94,14 @@ public class login
        }
        return u;
    }
+    public Users hesap_sil(int user_id)
+    {
+        int a =2;
+        Users u = em.find(Users.class,user_id);
+        em.getTransaction().begin();
+        u.setActiveDeactive(a);
+        em.getTransaction().commit();
+        return u;
+    }
     
 }

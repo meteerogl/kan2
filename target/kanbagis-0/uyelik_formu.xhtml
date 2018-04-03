@@ -13,7 +13,7 @@
         
                 <center>
                     <p:panel header="Yeni Üye Formu" style="padding: 12px;" >
-                        <p:commandButton value="GERI" icon="ui-icon-check" action="#{uyelikController.geri()}" validateClient="true" style="float: right" />
+                        <p:commandButton value="GERI" icon="ui-icon-check" action="#{uyelikController.geri()}"  style="float: right" />
                        <h:panelGrid columns="2" cellpadding="10" id="matchGrid" >
 
                                <h:outputText  value="Kullanıcı İsmi:"></h:outputText>
@@ -45,7 +45,18 @@
                                 <p:inputText value="#{uyelikController.tel_number}"></p:inputText>
 
                                <h:outputText value="Adres:"></h:outputText>
-                                <p:inputText value="#{uyelikController.adress}"></p:inputText>
+                                
+                                <p:selectOneMenu value="#{uyelikController.adress}">
+                                                    <f:selectItem itemValue="Ankara" itemLabel="Ankara"/>
+                                                     <f:selectItem itemValue="İstanbul" itemLabel="İstanbul"/>
+                                                     <f:selectItem itemValue="Sivas" itemLabel="Sivas"/>
+                                                     <f:selectItem itemValue="Şırnak" itemLabel="Şırnak"/>
+                                                     <f:selectItem itemValue="Hakkari" itemLabel="Hakkari"/>
+                                                     <f:selectItem itemValue="Kayseri" itemLabel="Kayseri"/>
+                                                     <f:selectItem itemValue="Muğla" itemLabel="Muğla"/>
+                                                     <f:selectItem itemValue="Denizli" itemLabel="Denizli"/>
+                     
+                                </p:selectOneMenu>
                                
                                 <h:outputText value="Şifre:"></h:outputText>
                                 <p:password value="#{uyelikController.user_password}"
