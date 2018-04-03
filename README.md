@@ -49,6 +49,8 @@ dan kaynaklandığını düşünüyorum. Bunun incelenmesi ve stabil hale getiri
 -Kullanıcılardan sadece il bilgisini alıyorum. Bunun yanında kullanıcıların açık adreslerinin kaydedildiği bir alan olması daha iyi olur.
 -Kullanıcılar hesaplarını sildikleri zaman active-deactive değerini 2 yapıyorum ve girişte bunun kontrolünü sağlıyorum, bunun yerine
 başka bir tabloda geçerli id numaraları ile tutabilirim.
+-Birde arkada controller paketimin içindeki java beans sınıflarımı bir sınıfta kullanmaktan sa sürekli farklı sınıflarda kullandım,
+bunun tek sebebi aşina olmam ve tekrar tekrar yazmak istemem. 
 
 Bunlar projeyi bitirdikten sonra inceleyip görebildiklerim bunlarında giderilmesi programı daha iyiy yapacaktır ve diğer versiyonlarda bunlara
 dikkat edilecek.
